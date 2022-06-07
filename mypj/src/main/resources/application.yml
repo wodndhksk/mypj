@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+    # ?? reload
+    devtools:
+      livereload:
+        enabled: true
+
+  # DB
+  datasource:
+    username: root
+    password: 1234
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:3306/db_mypj?serverTimezone=UTC&characterEncoding=UTF-8
+
+  logging:
+    level:
+      com.fish.encyclopedia: debug
+      com.fish.encyclopedia.OAuth2.controller: debug
+
+      com.project.study: error
+      com.project.study.controller: debug
+
+      org:
+        hibernate:
+          SQL: DEBUG
+          type:
+            trace
