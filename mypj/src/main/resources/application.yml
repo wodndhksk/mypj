@@ -13,10 +13,9 @@ spring:
     hibernate:
       ddl-auto: update
 
-    # ?? reload
-    devtools:
-      livereload:
-        enabled: true
+  devtools:
+    livereload:
+      enabled: true
 
   # DB
   datasource:
