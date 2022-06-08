@@ -15,12 +15,17 @@ public class AuthController {
 
     private final AccountService accountService;
 
-    @PostMapping(value="login")
+    @RequestMapping(value="/signin")
     public String signIn(Model model, HttpRequest req) {
 
         return "auth/signin";
     }
-    @PostMapping(value="signup")
+    @PostMapping(value="/signin")
+    public String afterSignIn(Model model, HttpRequest req) {
+
+        return "auth/signin";
+    }
+    @RequestMapping(value="/signup")
     public String signUp(Model model) {
 
         return "auth/signup";
