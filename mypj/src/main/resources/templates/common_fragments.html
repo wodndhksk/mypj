@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
-<th:block th:fragment="header_fragment">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
 </head>
 <body>
+<!-- header -->
+<div id="header" th:fragment="header">
     <!-- Navbar content -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: e3f2fd;">
         <div class="container-fluid">
@@ -44,6 +44,11 @@
             </div>
         </div>
     </nav>
+</div>
+
+<!-- footer -->
+<div id="footer" th:fragment="footer" class="jumbotron text-center banner" style="margin-bottom: 0;">
+    <xs>&copy;All Rights Reserved.</xs>
+</div>
 </body>
-</th:block>
 </html>

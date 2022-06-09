@@ -1,14 +1,12 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <th:block th:replace="common_fragment/common_fragment :: common_fragment"></th:block>
-    <title>Hello, world!</title>
-</head>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
 <body>
-<th:block th:replace="common_fragment/header :: header_fragment"></th:block>
-<th:block th:replace="auth/signin :: common_boday"></th:block>
-<p th:text="${content}"></p>
-<th:block th:replace="common_fragment/footer :: footer_fragment"></th:block>
+<div layout:fragment="content">
+    <p th:text="${content}"></p>
+</div>
 
 </body>
 </html>

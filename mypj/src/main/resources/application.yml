@@ -6,6 +6,7 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
     mode: HTML5
+    cache: false
 
   jpa:
     database-platform: org.hibernate.dialect.MariaDB103Dialect
@@ -35,5 +36,4 @@ spring:
       org:
         hibernate:
           SQL: DEBUG
-          type:
-            trace
+          type: trace
