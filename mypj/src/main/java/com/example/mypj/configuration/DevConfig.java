@@ -29,8 +29,10 @@ public class DevConfig {
                 .password(passwordEncoder.encode("1234"))
                 .type(AccountType.USER)
                 .build();
-
-        accountRepository.save(member);
+        //동일한 테스트 이메일 계정이 존재할 시
+        String a = accountRepository.findByEmail(member.getEmail()).toString();
+        if("Optional.empty".equals(accountRepository.findByEmail(member.getEmail()).toString()))
+            accountRepository.save(member);
         log.info("TestUser(" + member.getEmail() + ") has been created.");
     }
 }
