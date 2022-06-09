@@ -9,16 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-public class AuthController {
-
+@RequestMapping("/auth")
+public class AuthPageController {
     private final AccountService accountService;
 
-    @PostMapping(value="/login")
-    public String afterSignIn(Model model, String signInEmail, String signInPassword) {
-
-        System.out.printf("id : " + signInEmail);
-        System.out.printf("id : " + signInPassword);
+    @GetMapping(value="/signin")
+    public String signIn(Model model) {
 
         return "/auth/signin";
+    }
+
+    @RequestMapping(value="/signup")
+    public String signUp(Model model) {
+
+        return "/auth/signup";
     }
 }
