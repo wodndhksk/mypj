@@ -8,4 +8,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AccountService {
     private AccountRepository accountRepository;
+
+    public void login(String email, String password){
+        accountRepository.findByEmailAndPassword(email, password);
+    }
 }
