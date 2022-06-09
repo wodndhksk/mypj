@@ -4,14 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Getter
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tbl_account")
 public class Account {
@@ -31,7 +33,7 @@ public class Account {
     private Long friendId;
 
     @Column
-    @NotBlank
+//    @NotBlank
     private String nickname;
 
     @Column
@@ -43,4 +45,11 @@ public class Account {
     @Column(length = 2050)
     private String ProfileImageUrl;
 
+    @Enumerated(EnumType.STRING)
+    private AccountType type;
+
+    @Transactional
+    public void encodePassword(PasswordEncoder passwordEncoder){
+        password = passwordEncoder.encode(password);
+    }
 }
