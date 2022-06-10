@@ -30,8 +30,8 @@ public class DevConfig {
                 .type(AccountType.USER)
                 .build();
         //동일한 테스트 이메일 계정이 존재할 시
-        String a = accountRepository.findByEmail(member.getEmail()).toString();
-        if("Optional.empty".equals(accountRepository.findByEmail(member.getEmail()).toString()))
+        String str = accountRepository.findByEmail(member.getEmail()).toString();
+        if("Optional.empty".equals(str))
             accountRepository.save(member);
         log.info("TestUser(" + member.getEmail() + ") has been created.");
     }
