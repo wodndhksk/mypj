@@ -29,7 +29,7 @@ public class ContentsController {
     @PostMapping("/upload")
     public String uploadContentsData(ContentsDto contentsDto){
         contentsService.saveContents(contentsDto);
-        return "index";
+        return "redirect:/";
     }
     @GetMapping("/modify")
     public String modify(Model model, @RequestParam Long id){
@@ -42,6 +42,6 @@ public class ContentsController {
     @PostMapping("/modify")
     public String modifyAndUpdate(ContentsDto contentsDto, Long idx){
         contentsService.updateContents(contentsDto, idx);
-        return "index";
+        return "redirect:/";
     }
 }
