@@ -7,22 +7,19 @@
 <div layout:fragment="content" style="background-color: #FFFFFF;">
     <div class="container">
         <div class="row">
-            <form class="row g-3">
+            <form class="row g-3" method="post" th:action="@{/auth/signup}">
                 <div class="col-md-12" >
-                    <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-control justify-content-center" id="inputEmail4">
+                    <label for="inputEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control justify-content-center" th:name="inputEmail" id="inputEmail">
                 </div>
-
                 <div class="col-md-12">
-                    <label for="inputPassword4" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" th:name="inputPassword" id="inputPassword">
                 </div>
                 <div class="col-md-12">
                     <label for="inputPhone" class="form-label">Phone</label>
-                    <input type="text" class="form-control" id="inputPhone" placeholder="010-1234-5678">
+                    <input type="text" class="form-control" id="inputPhone" th:name="inputPhone" placeholder="01012345678">
                 </div>
-
-
                 <div class="col-12">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -32,9 +29,8 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" id="accountSignUnBtn" class="btn btn-primary">Submit</button>
                 </div>
-
             </form>
         </div>
     </div>
