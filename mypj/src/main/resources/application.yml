@@ -6,10 +6,19 @@ spring:
   profiles:
     active: dev
 
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
     mode: HTML5
+    cache: false
+
+  freemarker:
     cache: false
 
   jpa:
@@ -17,12 +26,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-
-  devtools:
-    livereload:
-      enabled: true
-    restart:
-      enabled: true
 
   # DB
   datasource:

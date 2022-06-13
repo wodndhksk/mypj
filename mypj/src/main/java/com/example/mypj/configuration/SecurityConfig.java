@@ -43,8 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/auth/**").permitAll()
                 // '/admin'의 경우 ADMIN 권한이 있는 사용자만 접근이 가능
                 .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/account/**").authenticated()
                 // 그 외 모든 요청은 인증과정 필요
-                .anyRequest().authenticated()
+//                .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/auth/signin")
