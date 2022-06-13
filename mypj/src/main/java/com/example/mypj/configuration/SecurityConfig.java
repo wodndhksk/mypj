@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //            "/image/**",
 //            "/swagger/**",
 //            "/swagger-ui/**",
-            "/templates/**",
+
     };
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 // login 없이 접근 허용 하는 url
-                .antMatchers("/auth/**").permitAll()
+                .antMatchers("/auth/**","/templates/**").permitAll()
                 // '/admin'의 경우 ADMIN 권한이 있는 사용자만 접근이 가능
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/account/**").authenticated()
