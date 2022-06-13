@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout" th:with="title='Contents modify'">
+
+<div layout:fragment="content" style="background-color: #FFFFFF;">
+    <div class="container">
+        <div class="row">
+            <h1>dd</h1>
+            <form class="row g-3" method="post" th:action="@{/contents/modify}" name="theUpdateForm">
+                <div class="col-md-12" >
+                    <label for="inputTitle" class="form-label title-reponse text-red">*Title</label>
+                    <input type="title" class="form-control justify-content-center" th:name="inputTitle" th:value="${content.title}" id="inputTitle">
+                </div>
+                <div class="col-md-12" >
+                    <label for="inputDescription" class="form-label title-reponse text-red">*Description</label>
+                    <input type="description" class="form-control justify-content-center" th:name="inputDescription" th:value="${content.description}" id="inputDescription">
+                </div>
+                <div class="col-md-12" >
+                    <label for="inputImageUrl" class="form-label">ImageUrl</label>
+                    <input type="imageUrl" class="form-control justify-content-center" th:name="inputImageUrl" th:value="${content.thumbnailImageUrl}" id="inputImageUrl">
+                </div>
+                <div style="display: none">
+                    <input type="idx" th:name="idx" th:value="${content.id}">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" id="uploadBtn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        var currentLocation = window.location;
+        console.log(currentLocation);
+        console.log(currentLocation.pathname);
+        console.log(currentLocation.search);
+        console.log(currentLocation.pathname+currentLocation.search);
+    </script>
+</div>
+</html>

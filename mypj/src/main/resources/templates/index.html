@@ -12,20 +12,33 @@
             <hr><br><br>
             <div class="col-md-3" th:each="content : ${contentList}">
                 <div class="card" style="width: 18rem;">
-                    <div style="display: none" th:id="${content.id}">
+                    <div style="display: none" id="contentId" th:id="${content.id}">
                     </div>
                     <img th:src="${content.thumbnailImageUrl}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${content.title}"></h5>
                         <p class="card-text" th:text="${content.description}"></p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <button type="button" class="btn btn-primary" th:attr="onclick=|submitIdx('${content.id}')|">Go somewhere</button>
+<!--                        <a href="#" class="btn btn-primary" onclick="submitIdx()">Go somewhere</a>-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script th:inline="javascript">
+        function submitIdx(idx){
+            window.location.href="/contents/modify?id=" +idx;
+            // document.write(
+            //     '<form th:action="@{/contents/modify}" id="idx" method="get">'
+            //     +'<input type = "hidden" id="idx" name="id" value= '+ idx +' >'
+            //     +'</form>'
+            // );
+            // document.getElementById("idx").submit();
+        }
 
+    </script>
 </div>
 
 </body>
+
 </html>
