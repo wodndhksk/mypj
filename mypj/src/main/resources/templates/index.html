@@ -5,7 +5,26 @@
       layout:decorate="layout">
 <body>
 <div layout:fragment="content">
-    <p th:text="${content}"></p>
+    <div class="container">
+        <hr>
+        <a href="/contents/upload">Add content</a>
+        <div class="row">
+            <hr><br><br>
+            <div class="col-md-3" th:each="content : ${contentList}">
+                <div class="card" style="width: 18rem;">
+                    <div style="display: none" th:id="${content.id}">
+                    </div>
+                    <img th:src="${content.thumbnailImageUrl}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${content.title}"></h5>
+                        <p class="card-text" th:text="${content.description}"></p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 </body>
