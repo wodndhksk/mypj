@@ -23,4 +23,9 @@ public class AuthPageController {
 
         return "/auth/signup";
     }
+
+    @GetMapping("login")
+    public String login(){
+        return "login";
+    }
 }

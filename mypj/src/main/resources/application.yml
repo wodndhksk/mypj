@@ -9,8 +9,8 @@ spring:
   devtools:
     livereload:
       enabled: true
-    restart:
-      enabled: true
+#    restart:
+#      enabled: true
 
   thymeleaf:
     prefix: classpath:/templates/

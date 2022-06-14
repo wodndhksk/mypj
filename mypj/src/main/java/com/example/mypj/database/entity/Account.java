@@ -8,7 +8,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Entity
 @Getter
@@ -47,6 +49,26 @@ public class Account {
 
     @Enumerated(EnumType.STRING)
     private AccountType type;
+
+    private int active;
+
+    private String roles = "";
+    private String permissions = "";
+    public List<String> getRoleList(){
+        if(this.roles.length()>0){
+            return Arrays.asList(this.roles.split(","));
+        }
+
+        return new ArrayList<>();
+    }
+
+    public List<String> getPermissionList(){
+        if(this.permissions.length()>0){
+            return Arrays.asList(this.permissions.split(","));
+        }
+
+        return new ArrayList<>();
+    }
 
     @Transactional
     public void encodePassword(PasswordEncoder passwordEncoder){

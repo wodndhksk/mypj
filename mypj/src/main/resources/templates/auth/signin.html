@@ -9,12 +9,12 @@
     <div class="container">
         <br>
         <div class="row">
-            <form class="row g-3" th:action="@{/login}" id="signInForm" method="post">
+            <form class="row g-3" th:action="@{/auth/signin}" id="signInForm" method="post">
                 <div class="col-md-4">
                 </div>
                 <div class="col-md-4">
                     <label for="signInEmail" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="signInEmail" name="signInEmail">
+                    <input type="email" class="form-control" id="signInEmail" th:name="email">
                 </div>
                 <div class="col-md-4">
                 </div>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="signInPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="signInPassword" name="signInPassword">
+                    <input type="password" class="form-control" id="signInPassword" th:name="password">
                 </div>
                 <div class="col-md-4">
                 </div>

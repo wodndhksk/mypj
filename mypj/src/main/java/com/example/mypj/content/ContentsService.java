@@ -25,6 +25,7 @@ public class ContentsService {
                 .description(contentsDto.getInputDescription())
                 .thumbnailImageUrl(contentsDto.getInputImageUrl())
                 .build();
+
         contentsRepository.save(contents);
     }
     public void updateContents(ContentsDto contentsDto, Long idx){
