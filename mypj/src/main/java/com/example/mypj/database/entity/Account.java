@@ -32,7 +32,7 @@ public class Account {
     private String phone;
 
     @Column
-    private Long friendId;
+    private String friendId;
 
     @Column
 //    @NotBlank
