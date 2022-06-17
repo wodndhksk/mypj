@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -26,8 +26,8 @@ public class AccountService {
                 .email(accountDto.getInputEmail())
                 .password(passwordEncoder.encode(accountDto.getInputPassword()))
                 .phone(accountDto.getInputPhone())
-//                .nickname()
-//                .friendId()
+                .nickname(accountDto.getNickname())
+                .friendId(creatFriedIdCode(accountDto.getNickname()))
                 .type(AccountType.USER)
                 .build();
         accountRepository.save(account);
@@ -41,16 +41,14 @@ public class AccountService {
      * @param nickname
      * @return
      */
-    //TODO: 랜덤 코드(friendId) 발급 테스트 진행 필요 !!
+    //TODO: 랜덤 코드(friendId) 테스트 완료(정상 동작)!!
     public String creatFriedIdCode(String nickname){
-        String code = "";
-        Optional<Account> result = accountRepository.findByNickname(nickname);
-        if(result.isPresent()){
-            while(accountRepository.findByFriendId(code) == null)
+        String code = randomCode();
+        List<Account> result = accountRepository.findAllByNickname(nickname);
+        if(!result.isEmpty()){
+            while(accountRepository.findByFriendId(code) != null)
                 code = randomCode();
         }
-        else code = randomCode();
-
         return code;
     }
 

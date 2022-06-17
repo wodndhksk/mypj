@@ -9,5 +9,6 @@ public class AccountDto {
     private String inputEmail;
     private String inputPassword;
     private String inputPhone;
+    private String nickname;
 
 }
