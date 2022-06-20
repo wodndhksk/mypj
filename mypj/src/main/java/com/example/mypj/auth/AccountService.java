@@ -53,9 +53,8 @@ public class AccountService {
     }
 
     public String randomCode(){
-        int code = 0;
         Random random = new Random();
-        code = random.nextInt(10000);
-        return Integer.toString(code);
+        int code = random.nextInt(10000);
+        return String.format("%04d", code); //빈자리 0으로 채워서 4자리수 리턴
     }
 }
