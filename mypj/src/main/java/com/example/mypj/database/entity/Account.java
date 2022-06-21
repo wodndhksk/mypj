@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +50,9 @@ public class Account {
 
     @Enumerated(EnumType.STRING)
     private AccountType type;
+
+    @Column
+    private LocalDateTime dateTime;
 
     private int active;
 
